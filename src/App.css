@@ -1,4 +1,3 @@
-/* Основные стили */
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +23,6 @@ body {
   background-color: #fff;
 }
 
-/* Верхнее изображение */
 .top {
   top: 0px;
   left: 50%;
@@ -36,13 +34,11 @@ body {
   z-index: 10;
 }
 
-/* Нижние кнопки */
 .down {
   width: 100%;
   bottom: 35px;
   left: 0px;
   position: fixed;
-  touch-action: none;
   display: block;
   z-index: 10;
 }
@@ -50,18 +46,40 @@ body {
 .btn {
   width: 100%;
   height: 70px;
-  bottom: 100px;
   position: fixed;
   left: 0px;
   opacity: 0;
   display: block;
   background: transparent;
   border: none;
-  cursor: pointer;
-  z-index: 20;
 }
 
-/* Превью изображения */
+.btn-share {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  left: 0px;
+  opacity: 0;
+  display: block;
+  background: transparent;
+  border: none;
+  bottom: 35px;
+  z-index:999;
+}
+
+.btn-show {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  left: 0px;
+  opacity: 0;
+  display: block;
+  background: transparent;
+  border: none;
+  bottom: 105px;
+  z-index:999;
+}
+
 .image-preview {
   position: relative;
   top: 10px;
@@ -81,7 +99,7 @@ body {
   height: auto;
   display: block;
   margin-top: 10px;
-  margin-bottom: 40%;
+  margin-bottom: 10px;
 }
 
 .image-preview__placeholder {
@@ -95,7 +113,6 @@ body {
   padding: 20px;
 }
 
-/* Popup стили */
 .popup {
   position: fixed;
   top: 50%;
@@ -151,7 +168,6 @@ body {
   z-index: 999;
 }
 
-/* Навигационные кнопки */
 .back, .back2, .back3 {
   position: fixed;
   top: 2%;
@@ -192,7 +208,6 @@ body {
   cursor: pointer;
 }
 
-/* Дополнительные экраны */
 .back_img, .back_img2, .main_menu {
   position: fixed;
   top: 0px;
@@ -209,7 +224,6 @@ body {
   left: 0%;
 }
 
-/* Скрытый input для файлов */
 .id1 {
   position: absolute;
   top: 60px;
@@ -221,7 +235,6 @@ body {
   z-index: 15;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
   .top {
     width: 98%;
@@ -237,7 +250,6 @@ body {
   }
 }
 
-/* Touch-friendly кнопки для мобильных */
 @media (pointer: coarse) {
   .btn, .forward, .forward2, .forward3, .back, .back2, .back3 {
     min-height: 44px;
@@ -245,26 +257,87 @@ body {
   }
 }
 
-/* Полосочка выше кнопок */
-.divider-line {
-  position: fixed;
-  bottom: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background-color: #f6f6f6;
-  z-index: 15;
-  border-radius: 1px;
-}
-
-/* Новая полоска на всю ширину выше фотки */
 .separator-line {
   position: fixed;
-  bottom: 180px; /* На 100 пикселей выше (175px + 100px) */
+  bottom: 180px;
   left: 0;
   width: 100%;
   height: 1px;
   background-color: #f6f6f6;
-  z-index: 15; /* Выше фотки */
+  z-index: 15; 
 }
+
+.toast-bottom {
+  position: fixed;
+  bottom: -45%;
+  left: 0;
+  width: 100%;
+  height: 45vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 23px;
+  border-top-right-radius: 23px;
+  z-index: 9999;
+  transition: bottom 0.1s ease;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.toast-txt {
+  margin: 5px;
+}
+
+.toast-bottom.show {
+  bottom: 0;
+}
+
+.toast-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0,0,0,0);
+  border-color: rgba(0,0,0,0);
+}
+
+.toast-close-btn-img {
+  width: 32px;
+  height: 32px;
+}
+
+.toast-title {
+  position: fixed;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  left: 15px;
+}
+
+.toast-padding {
+  margin-top: 70px;
+}
+
+.qr-img {
+  width: 165px;
+  height: 165px;
+  margin: 6px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+  
