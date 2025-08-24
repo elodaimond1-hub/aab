@@ -9,6 +9,7 @@ const App = () => {
   const [selectedImage, setSelectedImage] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
   const [randomNumber, setRandomNumber] = useState(null);
+  const [clickCount, setClickCount] = useState(0); 
   const fileInputRef = useRef(null);
 
   useEffect(() => {
@@ -32,8 +33,12 @@ const App = () => {
   };
 
   const triggerFileInput = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
+    setClickCount(prev => prev + 1); 
+    if (clickCount + 1 >= 5) {     
+      if (fileInputRef.current) {
+        fileInputRef.current.click();
+      }
+      setClickCount(0);
     }
   };
 
@@ -78,7 +83,7 @@ const App = () => {
         <div className="separator-line"></div>
         <div className="bottom_btn">
           <img src={buttons} alt="" className="down"/>
-          <button className="btn-share"></button>1
+          <button className="btn-share"></button>
           <button className="btn-show" onClick={showId}></button>
           <div className={`overlay ${toastVisible ? 'show' : ''}`}></div>
           <div className={`toast-bottom ${toastVisible ? 'show' : ''}`}>
