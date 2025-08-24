@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { jsPDF } from 'jspdf';
 import identity from './assets/identity.jpg';
 import buttons from './assets/buttons.jpg';
 import close from './assets/close.png';
@@ -52,6 +53,28 @@ const App = () => {
     setToastVisible(false);
   }
 
+  const handleShare = async () => {
+    const shareImg = localStorage.getItem('savedPhoto');
+    if (!shareImg) return alert("Error");
+
+    const doc = new jsPDF();
+    doc.addImage(shareImg, "PNG", 10, 20, 190, 257);
+    const pdfBlob = doc.output("blob");
+    const file = new File([pdfBlob], "54863568563692301235.pdf", { type: "application/pdf" });
+
+    if (navigator.share && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({
+          files: [file]
+        });
+      } catch (error) {
+        console.error("Error", error);
+      }
+    } else {
+      alert("Error");
+    }
+  };
+
   return (
     <div className="app">
       <div className="container">
@@ -74,7 +97,7 @@ const App = () => {
               />
             ) : (
               <div className="image-preview__placeholder">
-                <span>Нажмите, чтобы выбрать изображение удостоверения</span>
+                <span>Нажмите 5 раз, чтобы выбрать изображение удостоверения</span>
               </div>
             )}
           </div>
@@ -83,7 +106,7 @@ const App = () => {
         <div className="separator-line"></div>
         <div className="bottom_btn">
           <img src={buttons} alt="" className="down"/>
-          <button className="btn-share"></button>
+          <button className="btn-share" onClick={handleShare}></button>
           <button className="btn-show" onClick={showId}></button>
           <div className={`overlay ${toastVisible ? 'show' : ''}`}></div>
           <div className={`toast-bottom ${toastVisible ? 'show' : ''}`}>
