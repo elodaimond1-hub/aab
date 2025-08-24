@@ -23,7 +23,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "/aab/",
+  "scope" : "/aab/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
