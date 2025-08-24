@@ -264,7 +264,7 @@ body {
   bottom: 180px; /* На 100 пикселей выше (175px + 100px) */
   left: 0;
   width: 100%;
-  height: 0.5px;
+  height: 1px;
   background-color: #f6f6f6;
   z-index: 15; /* Выше фотки */
 }
