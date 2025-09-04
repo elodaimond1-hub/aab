@@ -43,15 +43,50 @@ body {
   z-index: 10;
 }
 
-.btn {
-  width: 100%;
-  height: 70px;
+.btn-to-back {
+  width: 10%;
+  height: 40px;
+  position: fixed;
+  left: 0px;
+  opacity: 0;
+  display: block;
+  border: none;
+  z-index:9999;
+}
+
+.btn-to-main {
+  width: 10%;
+  height: auto;
+  position: fixed;
+  left: 3px;
+  display: block;
+  z-index:9999;
+}
+
+.btn-switch {
+  width: 50%;
+  height: 35px;
   position: fixed;
   left: 0px;
   opacity: 0;
   display: block;
   background: transparent;
   border: none;
+  top: 48px;
+  z-index:9999;
+}
+
+.btn-switch2 {
+  width: 50%;
+  height: 35px;
+  position: fixed;
+  left: 50%;
+  opacity: 0;
+  display: block;
+  background: transparent;
+  border: none;
+  top: 48px;
+  z-index:9999;
 }
 
 .btn-share {
@@ -208,22 +243,6 @@ body {
   cursor: pointer;
 }
 
-.back_img, .back_img2, .main_menu {
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  height: 100vh;
-  left: -100%;
-  z-index: 50;
-  display: block;
-  transition: all 0.5s ease-in-out;
-  touch-action: pan-y;
-}
-
-.back_img.active, .back_img2.active, .main_menu.active {
-  left: 0%;
-}
-
 .id1 {
   position: absolute;
   top: 60px;
@@ -340,4 +359,29 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
-  
+
+.section {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 100px;
+  padding-left: 20px;
+}
+
+.copy-img {
+  height: 20px;
+  width: 20px;
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.back-top-text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 7px; 
+  font-weight: bold;
+  font-size: 15px;
+}
