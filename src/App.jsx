@@ -5,6 +5,8 @@ import identity from './assets/identity.jpg';
 import back from './assets/back.jpg';
 import back_gray from './assets/back_gray.png';
 import separator from './assets/separator.png';
+import id_icon from './assets/id_icon.png';
+import button_blue from './assets/button_blue.png'
 import Tab1 from './tabs/Tab1.jsx'
 
 
@@ -33,13 +35,16 @@ const App = () => {
           </motion.div>
         )}
         {backContent === "back" && (
-          <motion.div key="back" initial={{ x: direction === 1 ? -300 : 0, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -300, opacity: 0 }}  transition={{ duration: 0.13 }} className="page">
+          <motion.div key="back" initial={{ x: direction === 1 ? -300 : 0, opacity: 0 }} animate={{ x: 0, opacity: 1   }} exit={{ x: -300, opacity: 0 }}  transition={{ duration: 0.13 }} className="page">
             <img src={back} className="btn-to-main" onClick={mainSwitch}></img>
             <span className="back-top-text">Цифровые документы</span>
             <span className="back-middle-text-header">Мои документы</span>
+            <img src={id_icon} className="id-icon-img"></img>
             <span className="back-middle-text" onClick={mainSwitch}>Удостоверение личности</span>
             <img src={back_gray} className="back-gray-img" onClick={mainSwitch}></img>
             <img src={separator} className="separator"></img>
+            <img src={button_blue} className="btn-blue"></img>
+            <span className="back-middle-text-blue">Обновить список документов</span>
           </motion.div>
         )}
       </AnimatePresence>

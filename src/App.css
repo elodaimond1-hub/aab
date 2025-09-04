@@ -405,7 +405,7 @@ body {
 .back-middle-text {
   position: absolute;
   top: 107px;
-  left: 18px;
+  left: 70px;
   font-size: 18px;
 }
 
@@ -421,5 +421,32 @@ body {
   display: block;
   width: 100vw;
   margin: 95px 0 0 0;
+  height: 3px;
+}
+
+.id-icon-img {
+  width: 12%;
   height: auto;
+  position: fixed;
+  display: block;
+  top: 97px;
+  left: 12px;
+}
+
+.btn-blue {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  display: block;
+  top: 170px;
+  left: 0px;
+}
+
+.back-middle-text-blue {
+  position: absolute;
+  color:#fff;
+  top: 184px;
+  left: 74px;
+  font-size: 17px;
+  z-index: 999;
 }
