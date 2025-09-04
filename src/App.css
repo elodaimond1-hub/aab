@@ -427,7 +427,7 @@ body {
 .id-icon-img {
   width: 12%;
   height: auto;
-  position: fixed;
+  position: relative;
   display: block;
   top: 97px;
   left: 12px;
