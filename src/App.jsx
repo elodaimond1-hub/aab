@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import './App.css'; 
 import identity from './assets/identity.jpg';
-import back from './assets/back.jpg';
+import back from './assets/back.png';
 import back_gray from './assets/back_gray.png';
 import separator from './assets/separator.png';
 import id_icon from './assets/id_icon.png';
