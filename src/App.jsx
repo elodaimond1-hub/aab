@@ -6,7 +6,6 @@ import back from './assets/back.jpg';
 import back_gray from './assets/back_gray.png';
 import separator from './assets/separator.png';
 import id_icon from './assets/id_icon.png';
-import button_blue from './assets/button_blue.png'
 import Tab1 from './tabs/Tab1.jsx'
 
 
@@ -43,8 +42,6 @@ const App = () => {
             <span className="back-middle-text" onClick={mainSwitch}>Удостоверение личности</span>
             <img src={back_gray} className="back-gray-img" onClick={mainSwitch}></img>
             <img src={separator} className="separator"></img>
-            <img src={button_blue} className="btn-blue"></img>
-            <span className="back-middle-text-blue">Обновить список документов</span>
           </motion.div>
         )}
       </AnimatePresence>
