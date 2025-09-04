@@ -4,6 +4,7 @@ import './App.css';
 import identity from './assets/identity.jpg';
 import back from './assets/back.jpg';
 import back_gray from './assets/back_gray.png';
+import separator from './assets/separator.png';
 import Tab1 from './tabs/Tab1.jsx'
 
 
@@ -36,8 +37,9 @@ const App = () => {
             <img src={back} className="btn-to-main" onClick={mainSwitch}></img>
             <span className="back-top-text">Цифровые документы</span>
             <span className="back-middle-text-header">Мои документы</span>
-            <span className="back-middle-text">Удостоверение личности</span>
-            <img src={back_gray} className="back-gray-img"></img>
+            <span className="back-middle-text" onClick={mainSwitch}>Удостоверение личности</span>
+            <img src={back_gray} className="back-gray-img" onClick={mainSwitch}></img>
+            <img src={separator} className="separator"></img>
           </motion.div>
         )}
       </AnimatePresence>
