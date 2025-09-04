@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import './App.css'; 
 import identity from './assets/identity.jpg';
 import back from './assets/back.jpg';
+import back_gray from './assets/back_gray.png';
 import Tab1 from './tabs/Tab1.jsx'
 
 
@@ -18,7 +19,7 @@ const App = () => {
     <div className="app">
       <AnimatePresence mode="wait">
         {backContent === "main" && (
-          <motion.div key="main" initial={{ x: direction === 1 ? 0 : 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 300, opacity: 0 }} transition={{ duration: 0.1 }} className="page">
+          <motion.div key="main" initial={{ x: direction === 1 ? 0 : 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 300, opacity: 0 }} transition={{ duration: 0.13 }} className="page">
             <button className="btn-to-back" onClick={backSwitch}></button>
             <div className="main">
               <div className="id-btn">
@@ -31,9 +32,12 @@ const App = () => {
           </motion.div>
         )}
         {backContent === "back" && (
-          <motion.div key="back" initial={{ x: direction === 1 ? -300 : 0, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -300, opacity: 0 }}  transition={{ duration: 0.1 }} className="page">
+          <motion.div key="back" initial={{ x: direction === 1 ? -300 : 0, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -300, opacity: 0 }}  transition={{ duration: 0.13 }} className="page">
             <img src={back} className="btn-to-main" onClick={mainSwitch}></img>
             <span className="back-top-text">Цифровые документы</span>
+            <span className="back-middle-text-header">Мои документы</span>
+            <span className="back-middle-text">Удостоверение личности</span>
+            <img src={back_gray} className="back-gray-img"></img>
           </motion.div>
         )}
       </AnimatePresence>
