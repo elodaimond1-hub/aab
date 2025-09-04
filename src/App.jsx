@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from "framer-motion";
 import './App.css'; 
 import identity from './assets/identity.jpg';
 import back from './assets/back.jpg';
@@ -8,40 +9,34 @@ import Tab1 from './tabs/Tab1.jsx'
 const App = () => {
   const [activeContent, setActiveContent] = useState("first");
   const [backContent, setBackContent] = useState("main");
+  const [direction, setDirection] = useState(1);
 
-  const firstSwitch = () => {
-    setActiveContent("first");
-  }
-
-  const backSwitch = () => {
-    setBackContent("back");
-  }
-
-  const mainSwitch = () => {
-    setBackContent("main");
-  }
-
+  const firstSwitch = () => setActiveContent("first");
+  const backSwitch = () => { setDirection(1); setBackContent("back"); }
+  const mainSwitch = () => { setDirection(-1); setBackContent("main"); }
   return (
     <div className="app">
-      {backContent === "main" && (
-        <>
-          <button className="btn-to-back" onClick={backSwitch}></button>
-          <div className="main">
-            <div className="id-btn">
-                <img src={identity} className="top"/>
-                <button className="btn-switch" onClick={firstSwitch}></button>
-                <button className="btn-switch2" onClick={firstSwitch}></button>
+      <AnimatePresence mode="wait">
+        {backContent === "main" && (
+          <motion.div key="main" initial={{ x: direction === 1 ? 0 : 300, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 300, opacity: 0 }} transition={{ duration: 0.1 }} className="page">
+            <button className="btn-to-back" onClick={backSwitch}></button>
+            <div className="main">
+              <div className="id-btn">
+                  <img src={identity} className="top"/>
+                  <button className="btn-switch" onClick={firstSwitch}></button>
+                  <button className="btn-switch2" onClick={firstSwitch}></button>
+              </div>
+              {activeContent === "first" && <Tab1 />}
             </div>
-            {activeContent === "first" && <Tab1 />}
-          </div>
-        </>
-      )}
-      {backContent === "back" && (
-        <>
-          <img src={back} className="btn-to-main" onClick={mainSwitch}></img>
-          <span className="back-top-text">Цифровые документы</span>
-        </>
-      )}
+          </motion.div>
+        )}
+        {backContent === "back" && (
+          <motion.div key="back" initial={{ x: direction === 1 ? -300 : 0, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -300, opacity: 0 }}  transition={{ duration: 0.1 }} className="page">
+            <img src={back} className="btn-to-main" onClick={mainSwitch}></img>
+            <span className="back-top-text">Цифровые документы</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
